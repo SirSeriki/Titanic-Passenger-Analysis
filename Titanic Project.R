@@ -7,6 +7,7 @@ install.packages("here")
 install.packages("skimr")
 install.packages("janitor")
 install.packages("ggplot2")
+install.packages("plotly")
 
 ## Installing the libraries
 
@@ -23,6 +24,7 @@ library(tidyr)
 library(maps)
 library(ggmap)
 library(ggthemes)
+library(plotly)
 
 
 
@@ -43,10 +45,10 @@ summary(titanic)
 summary(titanic$Fare)
 
 
-## Dropping the 'Cabin' as it contain too little data and won't be necessary for this analysis 
+## Dropping the 'Cabin',.'SibSp','Parch','Ticket' as they won't be necessary for this analysis
 
 titanic <- titanic %>%  
-  select(-c( Cabin))
+  select(-c( Cabin,SibSp,Parch,Ticket))
 
 ## Dropping the NA values in the Age column so as to make visualization better
 
@@ -63,27 +65,30 @@ CityEmbarked <- (titanic$Embarked)
 #Visualization
 
 ## Passengers sex by Passenger Class
-titanic %>% 
+sexPclassPlot <- titanic %>% 
   ggplot()+
   geom_bar(aes(Sex, fill =Passengerclass))+
-   labs(title = "Passengers by Sex", caption = "1 - First Class  2 - Business class  3- Economy")
+   labs(title = "Passengers by Sex")
+ggplotly(sexPclass)
 
  ## There were more male passengers on-board. Almost double the number of female passengers. Most of the male passengers consisting of the economy passenger class.
 
 ## Passengers by Passenger class 
-
-titanic %>% 
+PclassPlot <- titanic %>% 
   ggplot()+
   geom_bar(aes(x= Passengerclass, fill = Passengerclass))+
-  labs(title = "Passengers by Passenger Class", caption = "1 - First Class;  2 - Business class;  3- Economy")
+  labs(title = "Passengers by Passenger Class")
+ggplotly(Pclass) 
+
  ## A bulk of the passengers on-board were in economy class. Considering the price difference between the fare for First Class and Economy, its safe to say economy class consisted of the lower class.
 
 ## Survival rate by Passenger Class
 
-titanic %>% 
+SurvivalPlot <- titanic %>% 
   ggplot()+
   geom_bar(aes(x= SurvivalRate, fill = Passengerclass))+
-  labs(title = "Passenger Survival by Passenger Class", caption = "0 - Died;  1 - Survived")
+  labs(title =  "Passenger Survival by Passenger Class")
+ggplotly(Survival)
 
 count(titanic$Survived) #Confirming the exact number passengers for each factor 
 
@@ -94,8 +99,8 @@ count(titanic$Survived) #Confirming the exact number passengers for each factor
 
 titanic %>% 
   ggplot()+
-  geom_histogram(aes(x = Age, fill = Passengerclass))+
-  labs(title = "Passengers by Age", caption = "1 - First Class;  2 - Business class;  3- Economy")
+  geom_histogram(aes(x = Age, fill = SurvivalRate))+
+  labs(title = "Passengers by Age") 
 
  
 ## Histogram of Passenger Age by Survival Rate
@@ -115,8 +120,8 @@ geom_count(x = Age, fill = Passengerclass)
 
 titanic %>% 
   ggplot()+
-  geom_bar(aes(x = CityEmbarked, fill =CityEmbarked))+
-  labs(title = "City Embarked", caption = "C = Cherbourg; Q = Queenstown; S = Southampton; U = Unknown")
+  geom_bar(aes(x = CityEmbarked, fill =Passengerclass))+
+  labs(title = "City Embarked")
  
 ## Most of the passengers embarked the Titanic in Southampton, with the city of Cherbourg coming in 2nd and Queenstown at 3rd. 
   
