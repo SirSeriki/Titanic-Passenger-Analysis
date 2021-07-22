@@ -1,5 +1,7 @@
 # Titanic-Passenger-Analysis
-Objective
+
+#Objective
+
 The overall objective is to prove the hypothesis that low income passengers suffered the most losses on the ill-fated Titanic on its maiden voyage in 1912.
 
 # Data
