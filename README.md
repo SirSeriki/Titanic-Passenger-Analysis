@@ -8,7 +8,7 @@ The overall objective is to prove the hypothesis that low income passengers suff
 The data for this project was obtained from titanic data a dataset in the public domain under CC0. The dataset consists of passengers information such as 'Passengerid', 'Survived', 'Age' and 'Pclass'.
 
 # Approach
-The first approach was to determine the sex 'Sex'of the passengers and grouped them by Passenger class 'Pclass', next we determined the number of passengers for every passenger class 1 being 'First Class' 2 being 'Business Class' and 3 'Economy Class'. Armed with the outcome we proceeded to determine the number of survivors and deaths for each passenger class. We then determined the age group of the passengers to point out the survival rate for each age group.
+The first approach was to determine the sex 'Sex'of the passengers and grouped them by Passenger class 'Pclass', next we determined the number of passengers for every passenger class; 1 being 'First Class', 2 being 'Business Class', and 3 'Economy Class'. Armed with the outcome we proceeded to determine the number of survivors and deaths for each passenger class. We then determined the age group of the passengers to point out the survival rate for each age group.
 
 # Key Takeways
 There were more male passengers on-board. Almost double the number of female passengers. Most of the male passengers consisting of the economy passenger class.
