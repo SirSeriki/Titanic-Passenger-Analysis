@@ -2,7 +2,7 @@
 
 #Objective
 
-The overall objective is to prove the hypothesis that low income passengers suffered the most losses on the ill-fated Titanic on its maiden voyage in 1912.
+The overall objective is to prove the hypothesis that low income passengers suffered the most losses on the ill-fated Titanic during its maiden voyage in 1912.
 
 # Data
 The data for this project was obtained from titanic data a dataset in the public domain under CC0. The dataset consists of passengers information such as 'Passengerid', 'Survived', 'Age' and 'Pclass'.
